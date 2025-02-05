@@ -1,5 +1,5 @@
 
-![use_case](https://github.com/user-attachments/assets/5603473c-f657-475a-83f1-a7dfc6c7cc64)
+![useCase](https://github.com/user-attachments/assets/df510637-92ec-4870-9cdf-16964a7f37c5)
 
 ## **Precondition:** ทุกๆ Use case จะต้องล็อกอินเข้าสู่ระบบ
 
@@ -13,11 +13,13 @@
 
 **Description:** นักดาราศาสตร์ทดสอบ Science Plan โดยใช้เครื่องจำลองกล้องโทรทรรศน์
 
-3. ### **Use Case: Submit the Science Plan**
+## **Astronomer - Observer**
+
+1. ### **Use Case: Submit the Science Plan**
 
 **Description:** นักดาราศาสตร์ส่ง Science Plan ให้ผู้สังเกตการณ์ตรวจสอบ
 
-4. ### **Use Case: Consult**
+2. ### **Use Case: Consult**
 
 **Description:** นักดาราศาสตร์และผู้สังเกตการณ์ปรึกษาหรือสื่อสารกันเกี่ยวกับการสังเกตการณ์ดาราศาสตร์ผ่านระบบ
 
@@ -25,11 +27,11 @@
 
 1. ### **Use Case: Verify and Validate the Science Plan**
 
-**Description:** ผู้สังเกตการณ์รับ Science Plan มาตรวจสอบยืนยันความถูกต้องก่อนแปลงเป็น โปรแกรมการสังเกตการณ์ ถ้ามีข้อผิดพลาดสามารถ reject Science Plan ได้
+**Description:** ผู้สังเกตการณ์รับ Science Plan มาตรวจสอบยืนยันความถูกต้องก่อนแปลงเป็นโปรแกรมสังเกตการณ์ ถ้ามีข้อผิดพลาดสามารถ reject Science Plan ได้
 
 2. ### **Use Case: Convert Science Plan to Observing Program**
 
-**Description:** ผู้สังเกตการณ์แปลง Science Plan ที่ตรวจสอบแล้วเป็นโปรแกรมการสังเกตการณ์
+**Description:** ผู้สังเกตการณ์แปลง Science Plan ที่ตรวจสอบแล้วเป็นโปรแกรมสังเกตการณ์
 
 3. ### **Use Case: Monitor the operation of the observation program**
 
@@ -52,6 +54,12 @@
 3. ### **Use Case: Monitor the operation of the telescope**
 
 **Description:** เจ้าหน้าที่ควบคุมกล้องโทรทรรศน์เฝ้าสังเกตและดูข้อมูลการทำงานของกล้องโทรทรรศน์ระหว่างกำลังสังเกตการณ์ตามโปรแกรมสังเกตการณ์
+
+## **Astronomer - Observer - Telescope Operator**
+
+1. ### **Use Case: View results from the observation program**
+
+**Description:** นักดาราศาสตร์, ผู้สังเกตการณ์ และเจ้าหน้าที่ควบคุมกล้องโทรทรรศน์ดูผลลัพธ์ที่ได้จากการดำเนินงานตามโปรแกรมสังเกตการณ์
 
 ## **Maintenance staff**
 
