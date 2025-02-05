@@ -1,3 +1,6 @@
+![soften](https://github.com/user-attachments/assets/79d47350-6955-421e-a384-807026c6f19f)
+
+
 ## **Precondition:** ทุกๆ Use case จะต้องล็อกอินเข้าสู่ระบบ
 
 ## **Astronomer**
