@@ -1,5 +1,5 @@
 
-![useCase](https://github.com/user-attachments/assets/df510637-92ec-4870-9cdf-16964a7f37c5)
+![use_case](https://github.com/user-attachments/assets/3a004dc7-0c16-4520-a015-7262b2ec0776)
 
 ## **Precondition:** ทุกๆ Use case จะต้องล็อกอินเข้าสู่ระบบ
 
