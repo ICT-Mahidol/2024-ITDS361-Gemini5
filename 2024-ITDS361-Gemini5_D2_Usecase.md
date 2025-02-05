@@ -1,5 +1,5 @@
-![soften](https://github.com/user-attachments/assets/79d47350-6955-421e-a384-807026c6f19f)
 
+![use_case](https://github.com/user-attachments/assets/5603473c-f657-475a-83f1-a7dfc6c7cc64)
 
 ## **Precondition:** ทุกๆ Use case จะต้องล็อกอินเข้าสู่ระบบ
 
@@ -19,7 +19,7 @@
 
 4. ### **Use Case: Consult**
 
-**Description:** นักดาราศาสตร์และผู้สังเกตการณ์ปรึกษาหรือสื่อสารเกี่ยวกับ Science Plan กันผ่านระบบ
+**Description:** นักดาราศาสตร์และผู้สังเกตการณ์ปรึกษาหรือสื่อสารกันเกี่ยวกับการสังเกตการณ์ดาราศาสตร์ผ่านระบบ
 
 ## **Observer**
 
@@ -31,9 +31,9 @@
 
 **Description:** ผู้สังเกตการณ์แปลง Science Plan ที่ตรวจสอบแล้วเป็นโปรแกรมการสังเกตการณ์
 
-3. ### **Use Case: Monitor the Progress of the Observing Program**
+3. ### **Use Case: Monitor the operation of the observation program**
 
-**Description:** ผู้สังเกตการณ์เฝ้าติดตามสถานะการดำเนินการของโปรแกรมสังเกตการณ์
+**Description:** ผู้สังเกตการณ์เฝ้าติดตามการดำเนินการของโปรแกรมสังเกตการณ์
 
 4. ### **Use Case: Manage Observing Program Schedule**
 
