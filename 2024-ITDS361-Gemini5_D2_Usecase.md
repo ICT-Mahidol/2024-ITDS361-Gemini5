@@ -39,7 +39,7 @@
 
 **Description:** ผู้สังเกตการณ์ตรวจสอบคิวการทำงานของโปรแกรมสังเกตการณ์ ถ้าต้องการสามารถปรับเปลี่ยนลำดับคิวได้
 
-**Telescope Operator**
+## **Telescope Operator**
 
 1. ### **Use Case: Setup and inspection of telescopes**
 
