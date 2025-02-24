@@ -26,3 +26,7 @@ jobs:
         cd Pradthana/HolidayTravelVehicles 
         javac -d . *.java
       # Compile java file from directory
+    - name: Run Main Class
+      run: |
+        cd Pradthana/HolidayTravelVehicles
+        Java Main
