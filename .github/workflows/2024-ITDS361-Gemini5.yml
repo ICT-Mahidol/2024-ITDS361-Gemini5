@@ -26,3 +26,7 @@ jobs:
         cd Chonthicha/HolidayTravelVehicles 
         javac -d . *.java
       # Compile java file from directory
+    - name: Run Java Main Class
+      run: |
+        cd Chonthicha/HolidayTravelVehicles  
+        java Main  
