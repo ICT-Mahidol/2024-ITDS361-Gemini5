@@ -24,7 +24,7 @@ jobs:
     - name: Compile Java
       run: |
         cd Sukkamit01/HolidayTravelVehicles 
-        javac -d . *.java
+        javac -source 11 -target 11 -d . *.java
       # Compile java file from directory
     - name: Run Java Main Class
       run: |
