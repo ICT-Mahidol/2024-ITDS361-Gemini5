@@ -12,9 +12,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.pull_request.head.ref }}
-        fetch-depth: ${{ env.PR_FETCH_DEPTH }}
+
 
     - name: Set up JDK
       uses: actions/setup-java@v1
@@ -28,5 +26,5 @@ jobs:
       # Compile java file from directory
     - name: Run Main Class
       run: |
-        cd Pradthana/HolidayTravelVehicles
+        cd Pradthana/HolidayTravelVehicles 
         Java Main
