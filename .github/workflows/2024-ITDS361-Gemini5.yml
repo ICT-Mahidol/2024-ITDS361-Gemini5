@@ -26,3 +26,7 @@ jobs:
         cd Sukkamit01/HolidayTravelVehicles 
         javac -d . *.java
       # Compile java file from directory
+    - name: Run Java Main Class
+      run: |
+        cd Sukkamit01/HolidayTravelVehicles
+        java Main
