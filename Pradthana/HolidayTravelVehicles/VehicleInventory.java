@@ -1,0 +1,30 @@
+public class VehicleInventory {
+    private String serialNumber;
+    private String name;
+    private String model;
+    private int year;
+    private String manufacturer;
+    private double baseCost;
+    private VehicleSearch vehicleSearch;
+
+    public VehicleInventory(String serialNumber, String name, String model, int year, String manufacturer, double baseCost) {
+        this.serialNumber = serialNumber;
+        this.name = name;
+        this.model = model;
+        this.year = year;
+        this.manufacturer = manufacturer;
+        this.baseCost = baseCost;
+        this.vehicleSearch = new VehicleSearch();
+    }
+
+    public void displayVehicleInfo() {
+        System.out.println("Vehicle Information:");
+        System.out.println("Serial Number: " + serialNumber);
+        System.out.println("Name: " + name);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("Manufacturer: " + manufacturer);
+        System.out.println("Base Cost: " + baseCost);
+        System.out.println("--------------------------");
+    }
+}
