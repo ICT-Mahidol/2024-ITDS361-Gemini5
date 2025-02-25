@@ -1,3 +1,4 @@
+
 name: Java CI
 
 on:
@@ -26,3 +27,7 @@ jobs:
         cd Unchitta/HolidayTravelVehicles 
         javac -d . *.java
       # Compile java file from directory
+    - name: Run Main Class
+      run: |
+        cd Unchitta/HolidayTravelVehicles 
+        java Main
