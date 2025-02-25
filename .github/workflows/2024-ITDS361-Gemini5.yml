@@ -26,3 +26,7 @@ jobs:
         cd Jirawat/HolidayTravelVehicles 
         javac -d . *.java
       # Compile java file from directory
+    - name: Run Java Main Class
+      run: |
+       cd Jirawat/HolidayTravelVehicles
+       java Main
