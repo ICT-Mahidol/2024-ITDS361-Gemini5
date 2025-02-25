@@ -1,5 +1,3 @@
-package Unchitta.HolidayTravelVehicles;
-
 public class Main {
     public static void main(String[] args) {
         // สร้าง Vehicle object

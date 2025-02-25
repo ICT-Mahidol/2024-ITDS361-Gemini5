@@ -1,5 +1,3 @@
-package Unchitta.HolidayTravelVehicles;
-
 import java.util.List;
 
 public class Invoice {

@@ -1,5 +1,3 @@
-package Unchitta.HolidayTravelVehicles;
-
 public class TradeInVehicle {
     private String serialNumber;
     private String make;

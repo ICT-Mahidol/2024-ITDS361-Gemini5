@@ -1,5 +1,3 @@
-package Unchitta.HolidayTravelVehicles;
-
 public class Vehicle {
     private String serialNumber;
     private String name;

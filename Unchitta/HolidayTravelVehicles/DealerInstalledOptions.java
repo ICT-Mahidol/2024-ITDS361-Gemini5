@@ -1,5 +1,3 @@
-package Unchitta.HolidayTravelVehicles;
-
 public class DealerInstalledOptions {
     private String optionCode;
     private String description;

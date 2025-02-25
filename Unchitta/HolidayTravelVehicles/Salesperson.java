@@ -1,5 +1,3 @@
-package Unchitta.HolidayTravelVehicles;
-
 public class Salesperson {
     private String employeeID;
     private String name;
