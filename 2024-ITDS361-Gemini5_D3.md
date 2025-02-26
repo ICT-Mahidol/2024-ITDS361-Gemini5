@@ -24,7 +24,6 @@
 
 
 ### Sequence Diagram
-![Sequence Diagram-Copy of UC2-New (1)](https://github.com/user-attachments/assets/39d48947-fa8b-4410-9753-9084f7b7e1ce)
 
 
 
@@ -69,6 +68,8 @@
 
 
 ### Sequence Diagram
+![Sequence U5](https://github.com/user-attachments/assets/d9c42840-5ae7-4f81-874c-3bcfaeb80f43)
+
 
 ---
 
