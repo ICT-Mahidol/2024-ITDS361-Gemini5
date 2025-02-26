@@ -78,4 +78,6 @@
 ---
 
 # Class Diagram
+![class](https://github.com/user-attachments/assets/1ac4bf00-d9a5-414d-b044-fe701b927f06)
+
 
