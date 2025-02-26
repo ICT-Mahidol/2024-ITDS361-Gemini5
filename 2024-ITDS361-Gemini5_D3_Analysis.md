@@ -40,6 +40,8 @@
 
 
 ### Sequence Diagram
+![Sequence_Diagram-UC3](https://github.com/user-attachments/assets/90fd5e23-7242-4cb4-8240-7e0c6349d59b)
+
 
 ---
 
