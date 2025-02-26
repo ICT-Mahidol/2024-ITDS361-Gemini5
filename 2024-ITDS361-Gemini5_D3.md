@@ -5,10 +5,11 @@
 
 
 ### Activity Diagram
+![project  acticity -access star](https://github.com/user-attachments/assets/164dab43-3ad9-4405-bea3-6942e2a75254)
 
-### Class Diagram
 
 ### Sequence Diagram
+![Sequence Diagram-UC1-New](https://github.com/user-attachments/assets/5ef143c4-c51c-4e1a-902d-489599265f27)
 
 ---
 
@@ -19,10 +20,12 @@
 
 
 ### Activity Diagram
+![project  acticity -create observing program](https://github.com/user-attachments/assets/2a0b74e1-c57d-4b93-805b-12e8afb86533)
 
-### Class Diagram
 
 ### Sequence Diagram
+![Sequence Diagram-Copy of UC2-New](https://github.com/user-attachments/assets/704f2b15-04fb-4841-b0f1-4f84b821596f)
+
 
 ---
 
@@ -33,8 +36,8 @@
 
 
 ### Activity Diagram
+![project  acticity -execute an approved science plan](https://github.com/user-attachments/assets/22da6f67-4d8e-41b8-8158-381a0bc1c17f)
 
-### Class Diagram
 
 ### Sequence Diagram
 
@@ -47,8 +50,8 @@
 
 
 ### Activity Diagram
+![project  acticity -monitor](https://github.com/user-attachments/assets/45a31a65-47cd-4e67-abcf-61a5df472767)
 
-### Class Diagram
 
 ### Sequence Diagram
 
@@ -61,8 +64,12 @@
 
 
 ### Activity Diagram
+![project  acticity -collect data](https://github.com/user-attachments/assets/ee191867-8c30-4eae-90cd-652899d16105)
 
-### Class Diagram
 
 ### Sequence Diagram
+
+---
+
+# Class Diagram
 
