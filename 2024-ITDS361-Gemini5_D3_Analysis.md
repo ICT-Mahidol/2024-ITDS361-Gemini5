@@ -56,7 +56,8 @@
 
 
 ### Sequence Diagram
-![Sequence U4](https://github.com/user-attachments/assets/1130cc3a-cb43-4492-9148-90635a2b40b7)
+![Sequence_Diagram-Copy_of_UC4_1_NEW](https://github.com/user-attachments/assets/86372b6f-1c09-4cb3-b4d3-9323f0dc07e1)
+
 
 
 ---
@@ -78,6 +79,7 @@
 ---
 
 # Class Diagram
-![class](https://github.com/user-attachments/assets/1ac4bf00-d9a5-414d-b044-fe701b927f06)
+![class_-Page-1](https://github.com/user-attachments/assets/4a779e93-0187-4817-aece-fe77d693b88d)
+
 
 
