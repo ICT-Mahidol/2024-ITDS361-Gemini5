@@ -3,7 +3,7 @@ name: SonarCloud workflow
 on:
   push:
     branches:
-      - master  # หรือ branch ที่คุณต้องการ
+      - master  
   pull_request:
     types: [opened, synchronize, reopened]
 
