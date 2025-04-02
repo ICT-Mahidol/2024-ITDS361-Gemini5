@@ -7,7 +7,7 @@
 ![project  acticity -access star (1)](https://github.com/user-attachments/assets/e03df4fd-0a51-4c09-a0f0-e04c014187e5)
 
 ### Sequence Diagram
-![Sequence U1](https://github.com/user-attachments/assets/cae12c0b-8659-4c33-b01e-0b4380389bf6)
+![image (1)](https://github.com/user-attachments/assets/e3bb2c59-8019-42b3-b27a-5cda6a84a364)
 
 
 # Create an Observing Program
