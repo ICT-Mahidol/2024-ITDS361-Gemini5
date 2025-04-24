@@ -84,6 +84,7 @@ const ProfilePage = ({ authUser, setAuthUser }) => {
 
   const handleLogout = () => {
     setAuthUser(null);
+    localStorage.removeItem("authUser");
     navigate("/login");
   };
 

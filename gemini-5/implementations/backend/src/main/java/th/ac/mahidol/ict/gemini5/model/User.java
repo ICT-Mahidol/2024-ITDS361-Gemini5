@@ -1,6 +1,12 @@
 package th.ac.mahidol.ict.gemini5.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -37,6 +43,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @NotEmpty(message = "role cannot be empty")
+    @Column(nullable = false)
+    private String role;
+
     @Transient 
     private String confirmPassword;
     
@@ -44,7 +54,7 @@ public class User {
         super();
     }
 
-    public User(String firstName, String lastName, String email, String username, String phone, String password, String confirmPassword) {
+    public User(String firstName, String lastName, String email, String username, String phone, String password, String confirmPassword, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -52,6 +62,7 @@ public class User {
         this.phone = phone;
         this.password = password;
         this.confirmPassword = confirmPassword;
+        this.role = role;
     }
 
     public Integer getId() {
@@ -109,6 +120,14 @@ public class User {
     public void setconfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 
     @Override
     public String toString() {

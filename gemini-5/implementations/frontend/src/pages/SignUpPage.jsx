@@ -11,6 +11,7 @@ const SignupForm = () => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setconfirmPassword] = useState("");
+    const [role, setRole] = useState("")
     const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -37,7 +38,8 @@ const SignupForm = () => {
     console.log("Password: ", password);
     console.log("Confirm Password: ", confirmPassword);
 
-    const newUser = { firstName, lastName, username, email, phone, password, confirmPassword };
+    const newUser = { firstName, lastName, username, email, phone, password, confirmPassword, role };
+    console.log("Submitting user:", newUser);
 
     const response = await fetch("http://localhost:8080/signup", {
         method: "POST",
@@ -66,7 +68,7 @@ const SignupForm = () => {
             { state: email, setState: setEmail, placeholder: "Email", Icon: FaEnvelope },
             { state: phone, setState: setPhone, placeholder: "Phone", Icon: FaPhone },
             { state: password, setState: setPassword, placeholder: "Password", Icon: FaLock, type: "password" },
-            { state: confirmPassword, setState: setconfirmPassword, placeholder: "Confirm Password", Icon: FaLock, type: "password" }
+            { state: confirmPassword, setState: setconfirmPassword, placeholder: "Confirm Password", Icon: FaLock, type: "password" },
           ].map(({ state, setState, placeholder, Icon, type = "text" }, index) => (
             <div key={index} className="flex items-center justify-center w-full mb-4">
               <Icon className="mr-3 text-white text-lg" />
@@ -80,6 +82,19 @@ const SignupForm = () => {
               />
             </div>
           ))}
+          <div className="flex items-center justify-center w-full mb-4">
+            <FaUserAlt className="mr-3 text-white text-lg" />
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+              className="w-full py-3 px-4 border border-white/30 rounded-full bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            >
+              <option value="">Select Role</option>
+              <option value="Astronomer">Astronomer</option>
+              <option value="ScienceObserver">ScienceObserver</option>
+            </select>
+          </div>
           <button type="submit" className="w-full py-2 text-lg font-bold text-white rounded-full bg-gradient-to-r from-purple-700 to-purple-500 transition-transform transform hover:translate-y-[-3px] hover:shadow-md">
             Sign Up
           </button>
