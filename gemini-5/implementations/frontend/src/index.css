@@ -8,7 +8,6 @@ body {
     height: 100vh; /* กำหนดให้เต็มจอ */
     margin: 0;
     padding: 0;
-    overflow: hidden; /* ปิดการเลื่อน */
     display: flex;
     flex-direction: column;
 }

@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+import SciencePlanCard from "../components/SciencePlanCard";
+import SciencePlanData from "../data/SciencePlanData";
 
 const SciplanPage = () => {
+
+  const [filterStatus, setFilterStatus] = useState('all');
+
+  const handleFilterChange = (e) => {
+    setFilterStatus(e.target.value);
+  };
+
+   // หา unique statuses
+   const statusOptions = Array.from(new Set(SciencePlanData.map(item => item.status)));
+
   return (
-    <div className="flex flex-col items-center justify-center text-center text-white py-10 min-h-screen">
-        <div>
-          <h1 className="text-7xl font-bold mb-5 drop-shadow-lg">Science Plans</h1>
-          <p className="text-xl mb-12">Discover the future with our cutting-edge platform.</p>
-        </div>
+    <div className={"max-w-[80%] m-auto my-10"}>
+      <div className="flex justify-between items-center mb-10">
+        <h1 className={"text-white font-extrabold text-5xl"}>
+          Science Plan
+        </h1>
+        <select
+          className="bg-white text-gray-800 p-2 rounded-md shadow"
+          value={filterStatus}
+          onChange={handleFilterChange}
+        >
+          <option value="all">All</option>
+          {statusOptions.map((status, idx) => (
+            <option key={idx} value={status}>
+              {status.charAt(0).toUpperCase() + status.slice(1)}
+            </option>
+          ))}
+        </select>
+      </div>
+      <SciencePlanCard filterStatus={filterStatus}/>
     </div>
   );
 };

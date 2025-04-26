@@ -1,12 +1,11 @@
 import React from "react";
+import SciencePlanCard from "../components/SciencePlanCard";
 
 const ObservePage = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center text-white py-10 min-h-screen">
-        <div>
-          <h1 className="text-7xl font-bold mb-5 drop-shadow-lg">Create an Observing Program</h1>
-          <p className="text-xl mb-12">Discover the future with our cutting-edge platform.</p>
-        </div>
+    <div className={"max-w-[80%] m-auto my-10"}>
+      <h1 className={"text-white font-extrabold text-5xl mb-10"}>Create Observing Program</h1>
+      <SciencePlanCard filterStatus={"validated"}/>
     </div>
   );
 };
