@@ -1,0 +1,4 @@
+rootProject.name = 'COPY_GEMINI5'
+
+include 'backend'
+include 'SpringBootOCS'

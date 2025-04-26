@@ -14,6 +14,20 @@ spring.datasource.url=jdbc:h2:file:D:/gemini-5/db/gemini5.db
 
 > 💡 เปลี่ยน path ได้ตามที่คุณต้องการ เช่น `D:/gemini-5/db/gemini5.db` 
 
+## 🚀 วิธีการรัน OCS (Spring Boot)
+
+1. เข้าไปยังโฟลเดอร์ `SpringBootOCS`:
+
+   ```bash
+   cd SpringBootOCS
+   ```
+
+2. Run OCS :
+
+   ```bash
+   ./gradlew bootRun
+   ```
+
 ---
 
 ## 🚀 วิธีการรัน Backend (Spring Boot)

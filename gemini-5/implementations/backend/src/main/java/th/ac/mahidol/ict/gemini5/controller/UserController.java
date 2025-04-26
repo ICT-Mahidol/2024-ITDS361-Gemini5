@@ -1,7 +1,6 @@
 package th.ac.mahidol.ict.gemini5.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +18,6 @@ import th.ac.mahidol.ict.gemini5.repository.UserRepository;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
-
-    // @Autowired
-    // private BCryptPasswordEncoder passwordEncoder;
 
     // Sign up
     @PostMapping("/signup")
