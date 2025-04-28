@@ -16,7 +16,8 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
+import SciplanDetailPage from "./pages/SciplanDetailPage";
 
 // ป้องกันต้องล็อกอินก่อนเข้าหน้าต่างๆ
 const ProtectedRoute = ({ authUser, children }) => {
@@ -89,7 +90,9 @@ function App() {
           <Route
             path="/observation"
             element={
-              <ProtectedRoute authUser={authUser && authUser.role === "ScienceObserver"}>
+              <ProtectedRoute
+                authUser={authUser && authUser.role === "ScienceObserver"}
+              >
                 <ObservePage authUser={authUser} />
               </ProtectedRoute>
             }
@@ -97,7 +100,9 @@ function App() {
           <Route
             path="/astrodata"
             element={
-              <ProtectedRoute authUser={authUser && authUser.role === "Astronomer"}>
+              <ProtectedRoute
+                authUser={authUser && authUser.role === "Astronomer"}
+              >
                 <AstroPage authUser={authUser} />
               </ProtectedRoute>
             }
@@ -107,6 +112,15 @@ function App() {
             element={
               <ProtectedRoute authUser={authUser}>
                 <SciplanPage authUser={authUser} />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/sciplan/:planId"
+            element={
+              <ProtectedRoute authUser={authUser}>
+                <SciplanDetailPage authUser={authUser} />
               </ProtectedRoute>
             }
           />

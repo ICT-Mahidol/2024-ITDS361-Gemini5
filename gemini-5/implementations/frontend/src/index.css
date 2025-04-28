@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 body {
-    background: url('https://res.cloudinary.com/drxcwjltk/image/upload/v1743456494/geminiWall.jpg') no-repeat center center fixed;
+    /* background: url('https://res.cloudinary.com/drxcwjltk/image/upload/v1743456494/geminiWall.jpg') no-repeat center center fixed; */
+    /* background: url('https://media.giphy.com/media/xUA7b3mdJsdGrzF6dW/giphy.gif?cid=ecf05e47zl9rwc1y9txltl5v0c1fv6az0bndlrscc6yxvjew&ep=v1_gifs_related&rid=giphy.gif&ct=g')no-repeat center center fixed; */
+    background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGpkcjJ5d2V1d2MxNGhxazNtbXc4b29kYXBnemZ3M2hhdXljZGI5NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JidwhuCLt3u5sXimzc/giphy.gif')no-repeat center center fixed;
     background-size: cover;
     height: 100vh; /* กำหนดให้เต็มจอ */
     margin: 0;
