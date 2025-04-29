@@ -289,9 +289,10 @@ public class DemoApplication {
         try {
             astroData = ocs.getAstronomicalData(ocs.getSciencePlanByNo(2));
             if (astroData != null) {
-                ArrayList<BufferedImage> images = null;
-                images = astroData.getAllImages();
+                ArrayList<BufferedImage> images = astroData.getAllImages();
                 System.out.println("Images = " + images.size());
+
+
             } else {
                 System.out.println("No astronomical data collected.\n");
             }
