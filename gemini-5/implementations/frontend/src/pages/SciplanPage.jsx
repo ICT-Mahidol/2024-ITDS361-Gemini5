@@ -11,7 +11,7 @@ const SciplanPage = () => {
 
   // หา unique statuses
   const statusOptions = Array.from(
-    new Set(SciencePlanData.map((item) => item.status))
+    new Set(SciencePlanData.map((item) => item.status.toUpperCase()))
   );
 
   return (

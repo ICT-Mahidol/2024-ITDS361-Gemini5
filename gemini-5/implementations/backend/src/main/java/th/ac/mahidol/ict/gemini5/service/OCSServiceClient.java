@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import th.ac.mahidol.ict.gemini5.model.AstronomicalData;
+// import th.ac.mahidol.ict.gemini5.model.AstronomicalData;
 import th.ac.mahidol.ict.gemini5.model.SciencePlan;
 
 import java.util.Arrays;
