@@ -6,8 +6,13 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "science_plan")
 public class SciencePlan {
 
+    @Id
     @JsonProperty("planNo")
     private int planID;
     
@@ -31,14 +36,30 @@ public class SciencePlan {
     @JsonProperty("starSystem")
     private String target;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "science_plan_id")
     private List<DataProcRequirement> dataProcRequirements; 
 
-    
+    @Enumerated(EnumType.STRING)
     private Status status;
-
-    // @JsonProperty("astronomicalData")
-    // private AstronomicalData astronomicalData; 
     
+    public SciencePlan() {}
+
+    public SciencePlan(int planID, String creator, String submitter, double funding, 
+                        String objectives, Date startDate, Date endDate,
+                        String telescopeAssigned, String target, Status status) {
+        this.planID = planID;
+        this.creator = creator;
+        this.submitter = submitter;
+        this.funding = funding;
+        this.objectives = objectives;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.telescopeAssigned = telescopeAssigned;
+        this.target = target;
+        this.status = status;
+    }
+
     
     public int getPlanID() { 
         return planID; 
@@ -120,10 +141,4 @@ public class SciencePlan {
         this.status = status;
     }
 
-    // public AstronomicalData getAstronomicalData() { 
-    //     return astronomicalData; 
-    // }
-    // public void setAstronomicalData(AstronomicalData astronomicalData) { 
-    //     this.astronomicalData = astronomicalData; 
-    // }
 }

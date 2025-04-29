@@ -2,6 +2,7 @@ package com.example.demo;
 
 import edu.gemini.app.ocs.OCS;
 import edu.gemini.app.ocs.model.SciencePlan;
+import edu.gemini.app.ocs.model.AstronomicalData;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -81,6 +82,16 @@ public class DemoController {
         }
     }
 
+    // @GetMapping("/astrodata/sp/{planId}")
+    // public ResponseEntity<AstronomicalData> getAstronomicalData(@PathVariable int planId) {
+    //     AstronomicalData astronomicalData = ocs.getAstronomicalDataByPlanId(planId);
+        
+    //     if (astronomicalData != null) {
+    //         return new ResponseEntity<>(astronomicalData, HttpStatus.OK);
+    //     } else {
+    //         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    //     }
+    // }
 
 
 }
