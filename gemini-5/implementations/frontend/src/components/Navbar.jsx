@@ -12,7 +12,7 @@ const Navbar = ({ authUser }) => {
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full h-[80px] px-6 flex justify-between items-center z-[99]">
+    <div className=" w-full h-[80px] px-6 flex justify-between items-center z-[99]">
       <Link
         to="/home"
         className="text-2xl font-bold text-white select-none no-underline"

@@ -48,9 +48,8 @@ function App() {
 
   return (
     <Router>
-      <Header authUser={authUser} />
-
-      <main className="pt-16">
+      <main className="">
+        <Header authUser={authUser} />
         <Routes>
           <Route
             path="/"
