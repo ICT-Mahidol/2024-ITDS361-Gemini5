@@ -2,72 +2,110 @@ package th.ac.mahidol.ict.gemini5.service;
 
 import th.ac.mahidol.ict.gemini5.model.DataProcRequirement;
 import th.ac.mahidol.ict.gemini5.model.SciencePlan;
+import th.ac.mahidol.ict.gemini5.repository.SciencePlanRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class SciencePlanService {
 
     private final OCSServiceClient ocsServiceClient;
+    private SciencePlanRepository sciencePlanRepository;
 
-     @Autowired
-    public SciencePlanService(OCSServiceClient ocsServiceClient) {
+    @Autowired
+    public SciencePlanService(OCSServiceClient ocsServiceClient, SciencePlanRepository sciencePlanRepository) {
         this.ocsServiceClient = ocsServiceClient;
+        this.sciencePlanRepository = sciencePlanRepository;
     }
+
+    public SciencePlan saveSciencePlanToDb(SciencePlan sp) {
+        SciencePlan entity = new SciencePlan();
+        entity.setPlanID(sp.getPlanID());
+        entity.setCreator(sp.getCreator());
+        entity.setSubmitter(sp.getSubmitter());
+        entity.setFunding(sp.getFunding());
+        entity.setObjectives(sp.getObjectives());
+        entity.setStartDate(sp.getStartDate());
+        entity.setEndDate(sp.getEndDate());
+        entity.setTelescope(sp.getTelescope());
+        entity.setTarget(sp.getTarget());
+        entity.setStatus(sp.getStatus());
+    
+        return sciencePlanRepository.save(entity);
+    }
+
+    /** Fetch Science Plans from OCS and save Local Database */
+    public List<SciencePlan> fetchAndSaveAllFromOCS() {
+        List<SciencePlan> plans = ocsServiceClient.getAllSciencePlans(); // ดึงมาจาก OCS
+
+        List<SciencePlan> newPlans = plans.stream()
+                .filter(plan -> !sciencePlanRepository.existsById(plan.getPlanID()))
+                .collect(Collectors.toList());
+
+        return sciencePlanRepository.saveAll(newPlans);  // แล้ว save ลง database
+    }
+
 
     /** Get all Science Plans */
     public List<SciencePlan> getAllSciencePlans() {
-        return ocsServiceClient.getAllSciencePlans();
+        return sciencePlanRepository.findAll();
     }
-
+    
     /** Get a Science Plan by ID */
     public SciencePlan getSciencePlanById(int id) {
-        return ocsServiceClient.getSciencePlanById(id);
+        return sciencePlanRepository.findById(id).orElse(null);
     }
 
     /** Get all Science Plans by Status */
     public List<SciencePlan> getSciencePlanByStatus(SciencePlan.Status status) {
-        List<SciencePlan> allPlans = getAllSciencePlans();
-        return allPlans.stream()
+        return sciencePlanRepository.findAll().stream()
                 .filter(plan -> plan.getStatus() == status)
                 .collect(Collectors.toList());
     }
 
     /** Update the status of a Science Plan */
     public boolean updateSciencePlanStatus(int planId, SciencePlan.Status newStatus) {
-        return ocsServiceClient.updateSciencePlanStatus(planId, newStatus);
+        Optional<SciencePlan> optionalPlan = sciencePlanRepository.findById(planId);
+        if (optionalPlan.isPresent()) {
+            SciencePlan plan = optionalPlan.get();
+            plan.setStatus(newStatus);
+            sciencePlanRepository.save(plan);
+            return true;
+        }
+        return false;
     }
 
     /** Execute Science Plan */
     public String runSciencePlan(int planId) {
-        SciencePlan sp = getSciencePlanById(planId);
+        Optional<SciencePlan> optionalPlan = sciencePlanRepository.findById(planId);
 
-        if (sp == null) {
+        if (!optionalPlan.isPresent()) {
             return "Science Plan not found";
         }
 
+        SciencePlan sp = optionalPlan.get();
         if (sp.getStatus() != SciencePlan.Status.VALIDATED) {
             return "Science Plan must be VALIDATED before execution. Please validate first.";
         }
 
-        boolean executionSuccess = ocsServiceClient.runSciencePlan(sp);
-        if (executionSuccess) {
-            boolean statusUpdated = updateSciencePlanStatus(planId, SciencePlan.Status.RUNNING);
-            return statusUpdated ? "Science Plan has been executed successfully."
-                                  : "Executed but cannot update status.";
-        } else {
-            return "Executed failed.";
-        }
+        sp.setStatus(SciencePlan.Status.RUNNING);
+        sciencePlanRepository.save(sp);
+        return "Science Plan has been executed successfully.";
     }
 
     /** Validate a Science Plan */
     public String validateSciencePlan(int planId) {
-        SciencePlan sp = getSciencePlanById(planId);
+        Optional<SciencePlan> optionalPlan = sciencePlanRepository.findById(planId);
+        if (!optionalPlan.isPresent()) {
+            return "Science Plan not found.";
+        }
+
+        SciencePlan sp = optionalPlan.get();
         
         if (sp == null) {
             return "Science Plan not found.";
@@ -78,16 +116,14 @@ public class SciencePlanService {
         }
 
         if (!isSciencePlanValid(sp)) {
-            // Validation failed → Invalidate plan
-            boolean invalidated = updateSciencePlanStatus(planId, SciencePlan.Status.INVALIDATED);
-            return invalidated ? "Validation failed. Plan INVALIDATED."
-                            : "Validation failed and failed to update status.";
+            sp.setStatus(SciencePlan.Status.INVALIDATED);
+            sciencePlanRepository.save(sp);
+            return "Validation failed. Plan INVALIDATED.";
         }
 
-        // Validation pass → Validate plan
-        boolean validated = updateSciencePlanStatus(planId, SciencePlan.Status.VALIDATED);
-        return validated ? "Validate Science Plan Succeed ID: " + planId
-                        : "Validation attempted but status not updated.";
+        sp.setStatus(SciencePlan.Status.VALIDATED);
+        sciencePlanRepository.save(sp);
+        return "Validate Science Plan Succeed ID: " + planId;
     }
     
 

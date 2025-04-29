@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import th.ac.mahidol.ict.gemini5.model.AstronomicalData;
 import th.ac.mahidol.ict.gemini5.model.SciencePlan;
 import th.ac.mahidol.ict.gemini5.service.SciencePlanService;
 
 import java.util.List;
 
-@RequestMapping("/ocs")
+@RequestMapping("/sp")
 @RestController
 @CrossOrigin
 public class SciencePlanController {
@@ -23,19 +22,19 @@ public class SciencePlanController {
     }
     
      /** Get all Science Plans */
-    @GetMapping("/sp/all")
+    @GetMapping("/all")
     public List<SciencePlan> getAllPlans() {
         return service.getAllSciencePlans();
     }
 
      /** Get a Science Plan by ID */
-    @GetMapping("/sp/{id}")
+    @GetMapping("/{id}")
     public SciencePlan getPlanById(@PathVariable int id) {
         return service.getSciencePlanById(id);
     }
 
     /** Get Science Plans by Status */
-    @GetMapping("/sp/status")
+    @GetMapping("/status")
     public List<SciencePlan> getPlansByStatus(@RequestParam String status) {
         try {
             SciencePlan.Status statusEnum = SciencePlan.Status.valueOf(status.toUpperCase());
@@ -46,7 +45,7 @@ public class SciencePlanController {
     }
 
     /** Execute a Science Plan */
-    @PostMapping("/sp/run/{id}")
+    @PostMapping("/run/{id}")
     public ResponseEntity<String> executePlan(@PathVariable int id) {
         String message = service.runSciencePlan(id);
 
@@ -61,7 +60,7 @@ public class SciencePlanController {
     }
 
     /** Validate a Science Plan */
-    @PutMapping("/sp/validate/{id}")
+    @PutMapping("/validate/{id}")
     public ResponseEntity<String> validatePlan(@PathVariable int id) {
         String message = service.validateSciencePlan(id);
     
@@ -75,7 +74,7 @@ public class SciencePlanController {
     }
 
     /** Update status of a Science Plan manually */
-    @PutMapping("/sp/{id}/status")
+    @PutMapping("/{id}/status")
     public ResponseEntity<String> updatePlanStatus(@PathVariable int id, @RequestParam String status) {
         try {
             SciencePlan.Status newStatus = SciencePlan.Status.valueOf(status.toUpperCase());
@@ -87,23 +86,5 @@ public class SciencePlanController {
         }
     }
 
-    // /** Get all Astronomical Data */
-    // @GetMapping("/astrodata/all")
-    // public List<AstronomicalData> getAllAstroData() {
-    //     return service.retrieveAllAstroData();
-    // }
 
-    // /** Get Astronomical Data by dataset ID */
-    // @GetMapping("/astrodata/{datasetId}")
-    // public ResponseEntity<AstronomicalData> getAstroDataById(@PathVariable int datasetId) {
-    //     AstronomicalData data = service.retrieveAstroDataByID(datasetId);
-    //     return data != null ? ResponseEntity.ok(data)
-    //                         : ResponseEntity.notFound().build();
-    // }
-
-    // /** Get Astronomical Data by data type */
-    // @GetMapping("/astrodata")
-    // public List<AstronomicalData> getAstroDataByType(@RequestParam String dataType) {
-    //     return service.retrieveAstroDataByDataType(dataType);
-    // }
 }

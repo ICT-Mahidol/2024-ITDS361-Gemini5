@@ -1,7 +1,14 @@
 package th.ac.mahidol.ict.gemini5.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "data_proc_requirement")
 public class DataProcRequirement {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String fileType;
     private String fileQuality;
     private String colorType;
@@ -15,6 +22,8 @@ public class DataProcRequirement {
     private double blacks;
     private double luminance;
     private double hue;
+
+    public DataProcRequirement() {}
 
     public String getFileType() { 
         return fileType; 
