@@ -9,16 +9,17 @@ import org.springframework.stereotype.Service;
 
 import th.ac.mahidol.ict.gemini5.model.SciencePlan;
 import th.ac.mahidol.ict.gemini5.repository.SciencePlanRepository;
+import th.ac.mahidol.ict.gemini5.facade.GeminiFacade;
 
 @Service
 public class SciencePlanService {
 
-    private final OCSServiceClient ocsServiceClient;
+    private final GeminiFacade geminiFacade;
     private SciencePlanRepository sciencePlanRepository;
 
     @Autowired
-    public SciencePlanService(OCSServiceClient ocsServiceClient, SciencePlanRepository sciencePlanRepository) {
-        this.ocsServiceClient = ocsServiceClient;
+    public SciencePlanService(GeminiFacade geminiFacade, SciencePlanRepository sciencePlanRepository) {
+        this.geminiFacade = geminiFacade;
         this.sciencePlanRepository = sciencePlanRepository;
     }
 
@@ -40,7 +41,7 @@ public class SciencePlanService {
 
     /** Fetch Science Plans from OCS and save Local Database */
     public List<SciencePlan> fetchAndSaveAllFromOCS() {
-        List<SciencePlan> plans = ocsServiceClient.getAllSciencePlans(); // ดึงมาจาก OCS
+        List<SciencePlan> plans = geminiFacade.getAllSciencePlans(); // ดึงมาจาก OCS
 
         List<SciencePlan> newPlans = plans.stream()
                 .filter(plan -> !sciencePlanRepository.existsById(plan.getPlanID()))
