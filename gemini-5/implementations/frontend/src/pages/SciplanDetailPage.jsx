@@ -198,6 +198,12 @@ const SciplanDetailPage = ({ authUser }) => {
           </>
         )}
 
+        {status === "COMPLETE" && authUser.role === "Astronomer" && (
+          <div>
+            <h2 className="text-3xl font-bold mb-4 text-white mt-10">Astronomer Data</h2>
+          </div>
+        )}
+
         {observingProgram && status === "VALIDATED" && authUser.role === "ScienceObserver" && (
           <div
             onClick={async () => {

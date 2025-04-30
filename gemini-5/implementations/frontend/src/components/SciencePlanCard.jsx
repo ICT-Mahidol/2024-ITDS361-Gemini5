@@ -42,7 +42,7 @@ const SciencePlanCard = ({ filterStatus, authUser }) => {
   }, []);
 
   // กำหนด role-based status visibility
-  const astronomerStatuses = ["created", "saved", "tested"];
+  const astronomerStatuses = ["created", "saved", "tested","complete"];
   const scienceObserverStatuses = [
     "submitted",
     "invalidated",

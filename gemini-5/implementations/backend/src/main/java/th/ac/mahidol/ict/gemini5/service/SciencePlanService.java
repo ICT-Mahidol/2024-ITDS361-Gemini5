@@ -3,12 +3,15 @@ package th.ac.mahidol.ict.gemini5.service;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.ArrayList;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import th.ac.mahidol.ict.gemini5.model.SciencePlan;
 import th.ac.mahidol.ict.gemini5.repository.SciencePlanRepository;
+
 
 @Service
 public class SciencePlanService {
@@ -21,6 +24,7 @@ public class SciencePlanService {
         this.ocsServiceClient = ocsServiceClient;
         this.sciencePlanRepository = sciencePlanRepository;
     }
+
 
     public SciencePlan saveSciencePlanToDb(SciencePlan sp) {
         SciencePlan entity = new SciencePlan();
@@ -132,6 +136,9 @@ public class SciencePlanService {
         sciencePlanRepository.save(sp);
         return "Invalidate Science Plan Succeed ID: " + planId;
     }
+    
+    
+    
     
     // public String validateSciencePlan(int planId) {
     //     Optional<SciencePlan> optionalPlan = sciencePlanRepository.findById(planId);

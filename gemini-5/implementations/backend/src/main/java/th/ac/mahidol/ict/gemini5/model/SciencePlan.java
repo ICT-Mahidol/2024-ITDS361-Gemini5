@@ -1,5 +1,6 @@
 package th.ac.mahidol.ict.gemini5.model;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -140,5 +141,6 @@ public class SciencePlan {
     public void setStatus(Status status) {
         this.status = status;
     }
+    
 
 }

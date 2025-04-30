@@ -1,0 +1,49 @@
+package th.ac.mahidol.ict.gemini5.model;
+
+import jakarta.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "astronomical_data")
+public class AstronomicalData {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ElementCollection
+    @CollectionTable(name = "astronomical_images", joinColumns = @JoinColumn(name = "astro_data_id"))
+    @Column(name = "image_url")
+    private List<String> imageUrls;
+
+    @ManyToOne
+    @JoinColumn(name = "science_plan_id", nullable = false) // ชื่อคอลัมน์ FK ไปยัง science_plan
+    private SciencePlan sciencePlan;
+
+    public AstronomicalData() {}
+
+    public AstronomicalData(List<String> imageUrls, SciencePlan sciencePlan) {
+        this.imageUrls = imageUrls;
+        this.sciencePlan = sciencePlan;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public List<String> getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(List<String> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public SciencePlan getSciencePlan() {
+        return sciencePlan;
+    }
+
+    public void setSciencePlan(SciencePlan sciencePlan) {
+        this.sciencePlan = sciencePlan;
+    }
+}
