@@ -93,45 +93,81 @@ public class SciencePlanService {
         if (!optionalPlan.isPresent()) {
             return "Science Plan not found.";
         }
-
+    
         SciencePlan sp = optionalPlan.get();
-
-        if (sp == null) {
-            return "Science Plan not found.";
-        }
-
+    
         if (sp.getStatus() != SciencePlan.Status.SUBMITTED) {
             return "Science Plan is not in SUBMITTED status, cannot validate.";
         }
-
-        if (!isSciencePlanValid(sp)) {
-            sp.setStatus(SciencePlan.Status.INVALIDATED);
-            sciencePlanRepository.save(sp);
-            return "Validation failed. Plan INVALIDATED.";
-        }
-
+    
         sp.setStatus(SciencePlan.Status.VALIDATED);
         sciencePlanRepository.save(sp);
         return "Validate Science Plan Succeed ID: " + planId;
     }
-
-    private boolean isSciencePlanValid(SciencePlan plan) {
-        if (plan.getCreator() == null ||
-                plan.getFunding() <= 0 ||
-                plan.getObjectives() == null ||
-                plan.getStartDate() == null ||
-                plan.getEndDate() == null ||
-                plan.getTelescope() == null ||
-                plan.getTarget() == null) {
-            return false;
+    
+    public String invalidateSciencePlan(int planId) {
+        Optional<SciencePlan> optionalPlan = sciencePlanRepository.findById(planId);
+        if (!optionalPlan.isPresent()) {
+            return "Science Plan not found.";
         }
-
-        List<DataProcRequirement> requirements = plan.getDataProcRequirements();
-        if (requirements == null || requirements.isEmpty()) {
-            return false;
+    
+        SciencePlan sp = optionalPlan.get();
+    
+        if (sp.getStatus() != SciencePlan.Status.SUBMITTED) {
+            return "Science Plan is not in SUBMITTED status, cannot invalidate.";
         }
-
-        return requirements.stream().allMatch(DataProcRequirement::isValid);
+    
+        sp.setStatus(SciencePlan.Status.INVALIDATED);
+        sciencePlanRepository.save(sp);
+        return "Invalidate Science Plan Succeed ID: " + planId;
     }
+
+    // public String validateSciencePlan(int planId) {
+    //     Optional<SciencePlan> optionalPlan = sciencePlanRepository.findById(planId);
+    //     if (!optionalPlan.isPresent()) {
+    //         return "Science Plan not found.";
+    //     }
+
+    //     SciencePlan sp = optionalPlan.get();
+
+    //     if (sp == null) {
+    //         return "Science Plan not found.";
+    //     }
+
+    //     if (sp.getStatus() != SciencePlan.Status.SUBMITTED) {
+    //         return "Science Plan is not in SUBMITTED status, cannot validate.";
+    //     }
+
+    //     if (!isSciencePlanValid(sp)) {
+    //         sp.setStatus(SciencePlan.Status.INVALIDATED);
+    //         sciencePlanRepository.save(sp);
+    //         return "Validation failed. Plan INVALIDATED.";
+    //     }
+
+    //     sp.setStatus(SciencePlan.Status.VALIDATED);
+    //     sciencePlanRepository.save(sp);
+    //     return "Validate Science Plan Succeed ID: " + planId;
+    // }
+
+
+
+    // private boolean isSciencePlanValid(SciencePlan plan) {
+    //     if (plan.getCreator() == null ||
+    //             plan.getFunding() <= 0 ||
+    //             plan.getObjectives() == null ||
+    //             plan.getStartDate() == null ||
+    //             plan.getEndDate() == null ||
+    //             plan.getTelescope() == null ||
+    //             plan.getTarget() == null) {
+    //         return false;
+    //     }
+
+    //     List<DataProcRequirement> requirements = plan.getDataProcRequirements();
+    //     if (requirements == null || requirements.isEmpty()) {
+    //         return false;
+    //     }
+
+    //     return requirements.stream().allMatch(DataProcRequirement::isValid);
+    // }
 
 }

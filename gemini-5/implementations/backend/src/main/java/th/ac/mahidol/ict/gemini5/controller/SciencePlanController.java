@@ -65,8 +65,17 @@ public class SciencePlanController {
 
         if (message.startsWith("Validate Science Plan Succeed")) {
             return ResponseEntity.ok(message); // 200 OK
-        } else if (message.contains("INVALIDATED")) {
-            return ResponseEntity.status(409).body(message); // 409 Conflict
+        } else {
+            return ResponseEntity.badRequest().body(message); // 400 Bad Request
+        }
+    }
+
+    @PutMapping("/invalidate/{id}")
+    public ResponseEntity<String> invalidatePlan(@PathVariable int id) {
+        String message = service.invalidateSciencePlan(id);
+
+        if (message.startsWith("Invalidate Science Plan Succeed")) {
+            return ResponseEntity.ok(message); // 200 OK
         } else {
             return ResponseEntity.badRequest().body(message); // 400 Bad Request
         }
