@@ -16,7 +16,9 @@ public class ObservingProgram {
     private String moduleContent;
     private String calibrationUnit;
     private String lightType;
-    private double[] telescopePositionPair;
+    private double telescopeDirection;
+    private double telescopeDegree;
+    private boolean validStatus;
 
     // Getters and Setters
     public int getPlanID() { return planID; }
@@ -49,6 +51,13 @@ public class ObservingProgram {
     public String getLightType() { return lightType; }
     public void setLightType(String lightType) { this.lightType = lightType; }
 
-    public double[] getTelescopePositionPair() { return telescopePositionPair; }
-    public void setTelescopePositionPair(double[] telescopePositionPair) { this.telescopePositionPair = telescopePositionPair; }
+    public double getTelescopeDirection() { return telescopeDirection; }
+    public void setTelescopeDirection(double telescopeDirection) { this.telescopeDirection = telescopeDirection; }
+
+    public double getTelescopeDegree() { return telescopeDegree; }
+    public void setTelescopeDegree(double telescopeDegree) { this.telescopeDegree = telescopeDegree; }
+
+    public boolean isValidStatus() { return validStatus; }
+    public void setValidationStatus(boolean validStatus) { this.validStatus = validStatus; }
+
 }

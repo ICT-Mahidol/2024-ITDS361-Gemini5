@@ -8,6 +8,8 @@ import AstroPage from "./pages/AstroPage";
 import SciplanPage from "./pages/SciplanPage";
 import ProfilePage from "./pages/ProfilePage";
 
+import { Toaster } from "react-hot-toast";
+
 import "./index.css";
 
 import {
@@ -31,8 +33,6 @@ function App() {
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  console.log(authUser);
-
   useEffect(() => {
     if (authUser) {
       localStorage.setItem("authUser", JSON.stringify(authUser));
@@ -49,6 +49,7 @@ function App() {
   return (
     <Router>
       <main className="">
+        <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
         <Header authUser={authUser} />
         <Routes>
           <Route
