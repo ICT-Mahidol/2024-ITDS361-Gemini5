@@ -8,7 +8,7 @@ const SciplanPage = ({ authUser }) => {
     setFilterStatus(e.target.value);
   };
 
-  const astronomerStatuses = ["CREATED", "SAVED", "TESTED"];
+  const astronomerStatuses = ["CREATED", "SAVED", "TESTED","COMPLETE"];
   const scienceObserverStatuses = [
     "SUBMITTED",
     "VALIDATED",

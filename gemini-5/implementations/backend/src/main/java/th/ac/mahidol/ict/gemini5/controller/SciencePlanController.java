@@ -15,19 +15,19 @@ import java.util.List;
 public class SciencePlanController {
 
     private final SciencePlanService service;
-    
+
     @Autowired
     public SciencePlanController(SciencePlanService service) {
         this.service = service;
     }
-    
-     /** Get all Science Plans */
+
+    /** Get all Science Plans */
     @GetMapping("/all")
     public List<SciencePlan> getAllPlans() {
         return service.getAllSciencePlans();
     }
 
-     /** Get a Science Plan by ID */
+    /** Get a Science Plan by ID */
     @GetMapping("/{id}")
     public SciencePlan getPlanById(@PathVariable int id) {
         return service.getSciencePlanById(id);
@@ -52,7 +52,6 @@ public class SciencePlanController {
         if (message.contains("successfully")) {
             return ResponseEntity.ok(message);
         } else if (message.contains("validate")) {
-            // แยกกรณีพิเศษ: ต้องไป validate
             return ResponseEntity.status(409).body(message); // 409 Conflict
         } else {
             return ResponseEntity.badRequest().body(message);
@@ -66,18 +65,8 @@ public class SciencePlanController {
 
         if (message.startsWith("Validate Science Plan Succeed")) {
             return ResponseEntity.ok(message); // 200 OK
-        } else {
-            return ResponseEntity.badRequest().body(message); // 400 Bad Request
-        }
-    }
-
-    /** Inalidate a Science Plan */
-    @PutMapping("/invalidate/{id}")
-    public ResponseEntity<String> invalidatePlan(@PathVariable int id) {
-        String message = service.invalidateSciencePlan(id);
-
-        if (message.startsWith("Invalidate Science Plan Succeed")) {
-            return ResponseEntity.ok(message); // 200 OK
+        } else if (message.contains("INVALIDATED")) {
+            return ResponseEntity.status(409).body(message); // 409 Conflict
         } else {
             return ResponseEntity.badRequest().body(message); // 400 Bad Request
         }
@@ -90,14 +79,10 @@ public class SciencePlanController {
             SciencePlan.Status newStatus = SciencePlan.Status.valueOf(status.toUpperCase());
             boolean success = service.updateSciencePlanStatus(id, newStatus);
             return success ? ResponseEntity.ok("Status updated to " + newStatus)
-                        : ResponseEntity.badRequest().body("Invalid status or failed to update.");
+                    : ResponseEntity.badRequest().body("Invalid status or failed to update.");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("Invalid status value: " + status);
         }
     }
-
-    /** Add an image URL to the Science Plan */
-    
-
 
 }
